@@ -4,8 +4,6 @@ from chatterbot import ChatBot # type: ignore
 from chatterbot.trainers import ChatterBotCorpusTrainer # type: ignore
 from chatterbot.conversation import Statement # type: ignore
 
-
-
 #aquires training data from the database
 ChatBot= ChatBot("LEXI")
 
@@ -27,7 +25,6 @@ def Wishuser():
         engine.say(f"Good Evening, {user}")
         print("Good Evening")
 
-
 #pyttsx3 initialization and settings
 engine = pyttsx3.init()
 voices = engine.getProperty('rate')
@@ -35,11 +32,8 @@ engine.setProperty('rate', 160)
 voices_list = engine.getProperty('voices')
 engine.setProperty('voice', voices_list[1].id)
 
-
 engine.say("Hey there!, what's your name,friend?.")
 engine.runAndWait()
-
-
 
 #user name input
 user=input("Enter name :")
@@ -51,12 +45,8 @@ engine.runAndWait()
 engine.say("lets chat.")
 engine.runAndWait()
 
-
-
-
 while True:
     query=input(f"{user}    :")
-
     response= ChatBot.get_response(query)
     print(ChatBot.get_response(Statement(text=query, search_text=query)))
     engine.say(ChatBot.get_response(Statement(text=query, search_text=query)))
