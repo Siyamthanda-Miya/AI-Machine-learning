@@ -59,7 +59,7 @@ while True:
 
     response= ChatBot.get_response(query)
     print(ChatBot.get_response(Statement(text=query, search_text=query)))
-    engine.say(response)
+    engine.say(ChatBot.get_response(Statement(text=query, search_text=query)))
     engine.runAndWait()
  
 
